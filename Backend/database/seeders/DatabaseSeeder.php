@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -17,8 +18,8 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@company.com',
-            'password' => bcrypt('password'),
-            'type' => 'Super admin',
+            'password' => Hash::make('password'),
+            'type' => 'SA',
         ]);
     }
 }

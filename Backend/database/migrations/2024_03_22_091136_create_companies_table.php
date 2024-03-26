@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('companies', function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
+                $table->string('email')->unique();
+                $table->string('website');  
                 $table->string('location')->nullable();
                 $table->json('contact_number')->nullable();
-                $table->string('website')->nullable();  
                 $table->string('logo_url')->nullable();
                 $table->timestamps();
         });
