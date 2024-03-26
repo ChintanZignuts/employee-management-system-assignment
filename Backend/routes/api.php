@@ -15,12 +15,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('companies/create',[CompanyController::class, 'store']);
         Route::get('companies',[CompanyController::class, 'index']);
         Route::get('companies/{id}',[CompanyController::class, 'show']);
-        Route::get('companies/all_employees',[CompanyEmployeeController::class, 'index']);
-        
+        Route::get('allemployee',[CompanyEmployeeController::class, 'index']);
     });
-
-    Route::middleware([CheckUserType::class . ':SA,CA,E'])->group(function(){
-      
+    
+    Route::middleware([CheckUserType::class . ':SA,CA'])->group(function(){
+        Route::post('employee/create',[CompanyEmployeeController::class, 'store']);
     });
     
 });
